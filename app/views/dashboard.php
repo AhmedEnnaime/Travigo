@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- [ Main Content ] start -->
+    <?php flash('register_success'); ?>
     <div class="pcoded-main-container">
         <div class="pcoded-wrapper">
             <div class="pcoded-content">
@@ -85,41 +86,35 @@
                                             <div class="table-responsive">
                                                 <table class="table table-hover">
                                                     <tbody>
-                                                        <?php
-                                                        foreach ($products as $product) { ?>
+                                                        <?php foreach ($data['products'] as $product) : ?>
                                                             <tr class="unread">
                                                                 <td><img class="rounded-circle" style="width:40px;" src="<?php echo URLROOT ?>/images/user/avatar-1.jpg" alt="activity-user"></td>
                                                                 <td>
-                                                                    <h6 class="mb-1"><?php echo $product['title']; ?></h6>
-                                                                    <p class="m-0"><?php echo $product['destination']; ?></p>
+                                                                    <h6 class="mb-1"><?php echo $product->title; ?></h6>
+                                                                    <p class="m-0"><?php echo $product->destination; ?></p>
                                                                 </td>
                                                                 <td>
-                                                                    <h6 class="text-muted"><?php echo $product['date_depart']; ?></h6>
+                                                                    <h6 class="text-muted"><?php echo $product->date_depart; ?></h6>
                                                                 </td>
                                                                 <td>
                                                                     <form action="./delete.php" method="POST">
-                                                                        <input name="id" type="hidden" value="<?php echo $product['id']; ?>">
+                                                                        <input name="id" type="hidden" value="<?php echo $product->id; ?>">
                                                                         <input style="border: none ;" type="submit" class="label theme-bg2 text-white f-12" value="Delete">
 
                                                                     </form>
                                                                 </td>
                                                                 <td>
                                                                     <form action="./update.php" method="POST">
-                                                                        <input name="id" type="hidden" value="<?php echo $product['id']; ?>">
+                                                                        <input name="id" type="hidden" value="<?php echo $product->id; ?>">
                                                                         <input style="border: none;" type="submit" class="label theme-bg text-white f-12" value="Update">
                                                                     </form>
 
                                                                 </td>
 
-
-
-
                                                             </tr>
 
-                                                        <?php
-                                                        }
+                                                        <?php endforeach; ?>
 
-                                                        ?>
 
                                                     </tbody>
                                                 </table>

@@ -17,6 +17,7 @@
                     <div class="mb-4">
                         <i class="feather icon-unlock auth-icon"></i>
                     </div>
+                    <?php flash('register_success'); ?>
                     <h3 class="mb-4">Login</h3>
                     <form action="<?php echo URLROOT; ?>/users/login" method="POST">
                         <div class="input-group mb-3">

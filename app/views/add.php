@@ -43,35 +43,41 @@
                                             <hr>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <form action="" method="POST" enctype="multipart/form-data">
+                                                    <form action="<?php echo URLROOT; ?>/products/add" method="POST" enctype="multipart/form-data">
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Title</label>
-                                                            <input type="text" class="form-control" name="title" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter title">
-
+                                                            <input type="text" class="form-control <?php echo (!empty($data['title_err'])) ? 'is-invalid' : ''; ?>" name="title" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter title" value="<?php echo $data['title']; ?>">
+                                                            <span class="invalid-feedback"><?php echo $data['title_err'];  ?></span>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleInputPassword1">Destination</label>
-                                                            <input type="text" class="form-control" name="destination" id="exampleInputPassword1" placeholder="Enter destination">
+                                                            <input type="text" class="form-control <?php echo (!empty($data['destination_err'])) ? 'is-invalid' : ''; ?>" name="destination" id="exampleInputPassword1" placeholder="Enter destination" value="<?php echo $data['destination']; ?>">
+                                                            <span class="invalid-feedback"><?php echo $data['destination_err'];  ?></span>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleInputPassword1">Image</label>
-                                                            <input type="file" class="form-control" name="media" id="exampleInputPassword1" placeholder="Enter destination">
+                                                            <input type="file" class="form-control <?php echo (!empty($data['media_err'])) ? 'is-invalid' : ''; ?>" name="media" id="exampleInputPassword1" placeholder="Enter media" value="<?php echo $data['media']; ?>">
+                                                            <span class="invalid-feedback"><?php echo $data['media_err'];  ?></span>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Date depart</label>
-                                                            <input type="date" name="date_depart" class="form-control" placeholder="date">
+                                                            <input type="date" name="date_depart" class="form-control <?php echo (!empty($data['date_depart_err'])) ? 'is-invalid' : ''; ?>" placeholder="date" value="<?php echo $data['date_depart']; ?>">
+                                                            <span class="invalid-feedback"><?php echo $data['date_depart_err'];  ?></span>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleFormControlSelect1">Price</label>
-                                                            <input type="number" name="price" class="form-control" id="exampleFormControlSelect1" placeholder="Enter price">
+                                                            <input type="number" name="price" class="form-control <?php echo (!empty($data['price_err'])) ? 'is-invalid' : ''; ?>" id="exampleFormControlSelect1" placeholder="Enter price" value="<?php echo $data['price']; ?>">
+                                                            <span class="invalid-feedback"><?php echo $data['price_err'];  ?></span>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleFormControlSelect1">Places availables</label>
-                                                            <input type="number" name="places_availables" class="form-control" id="exampleFormControlSelect1" placeholder="Enter places availables">
+                                                            <input type="number" name="places_availables" class="form-control <?php echo (!empty($data['places_availables_err'])) ? 'is-invalid' : ''; ?>" id="exampleFormControlSelect1" placeholder="Enter places availables" value="<?php echo $data['places_availables']; ?>">
+                                                            <span class="invalid-feedback"><?php echo $data['places_availables_err'];  ?></span>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleFormControlTextarea1">Description</label>
-                                                            <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                            <textarea class="form-control <?php echo (!empty($data['description_err'])) ? 'is-invalid' : ''; ?>" name="description" id="exampleFormControlTextarea1" rows="3" value="<?php echo $data['description']; ?>"><?php echo $data['description']; ?></textarea>
+                                                            <span class="invalid-feedback"><?php echo $data['description_err'];  ?></span>
                                                         </div>
 
                                                         <button type="submit" name="add" class="btn btn-primary">Add</button>

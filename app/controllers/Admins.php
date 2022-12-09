@@ -5,15 +5,19 @@ class Admins extends Controller
 
     public function __construct()
     {
+        if (!isset($_SESSION['id'])) {
+            redirect('users/login');
+        }
+
+        $this->productModel = $this->model('Product');
     }
 
     public function dashboard()
     {
-        $this->view('dashboard');
-    }
-
-    public function add()
-    {
-        $this->view('add');
+        $products = $this->productModel->getProducts();
+        $data = [
+            'products' => $products,
+        ];
+        $this->view('dashboard', $data);
     }
 }

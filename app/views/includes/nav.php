@@ -15,7 +15,7 @@
 
 
                 <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
-                    <a href="<?php echo URLROOT; ?>/admins/add" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Add Travel</span></a>
+                    <a href="<?php echo URLROOT; ?>/products/add" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Add Travel</span></a>
                 </li>
 
                 <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
@@ -63,7 +63,7 @@
                         <div class="pro-head">
                             <img src="<?php echo URLROOT ?>/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
                             <span>John Doe</span>
-                            <a href="./logout.php" class="dud-logout" title="Logout">
+                            <a href="<?php echo URLROOT; ?>/users/logout" class="dud-logout" title="Logout">
                                 <i class="feather icon-log-out"></i>
                             </a>
                         </div>

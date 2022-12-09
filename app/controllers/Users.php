@@ -31,8 +31,20 @@ class Users extends Controller
             if (empty($data['password'])) {
                 $data['password_err'] = 'Please enter password';
             }
+
+            if ($this->userModel->findUserByEmail($data['email'])) {
+            } else {
+                $data['email_err'] = 'No user found';
+            }
+
             if (empty($data['email_err']) && empty($data['password_err'])) {
-                die("SUCCESS");
+                $loggedInUser = $this->userModel->login($data['email'], $data['password']);
+                if ($loggedInUser) {
+                    $this->createUserSession($loggedInUser);
+                } else {
+                    $data['password_err'] = 'Password incorrect';
+                    $this->view('login', $data);
+                }
             } else {
                 $this->view('login', $data);
             }
@@ -101,6 +113,7 @@ class Users extends Controller
                 $data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
                 //die(print_r($data));
                 if ($this->userModel->signup($data)) {
+                    flash('register_success', 'You are registered and can log in');
                     redirect('users/login');
                 } else {
                     die("Something went wrong");
@@ -124,5 +137,24 @@ class Users extends Controller
             ];
             $this->view('signup');
         }
+    }
+
+    public function createUserSession($user)
+    {
+        $_SESSION['id'] = $user->id;
+        $_SESSION['logged'] = true;
+        $_SESSION['role'] = $user->role;
+        $_SESSION['email'] = $user->email;
+        redirect('pages/index');
+    }
+
+    public function logout()
+    {
+        unset($_SESSION['id']);
+        unset($_SESSION['logged']);
+        unset($_SESSION['email']);
+        unset($_SESSION['role']);
+        session_destroy();
+        redirect('users/login');
     }
 }
