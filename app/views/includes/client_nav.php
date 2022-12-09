@@ -14,7 +14,7 @@
 
         if ($_SESSION['logged'] == true && $_SESSION['role'] == 0) { ?>
 
-            <a href="<?php echo URLROOT; ?>/admin/dashboard">Dashboard</a>
+            <a href="<?php echo URLROOT; ?>/admins/dashboard">Dashboard</a>
             <a href="./logout.php">Logout</a>
         <?php
         } else if ($_SESSION['logged'] == true && $_SESSION['role'] == 1) { ?>

@@ -1,6 +1,6 @@
 <?php
 
-class Admin extends Controller
+class Admins extends Controller
 {
 
     public function __construct()

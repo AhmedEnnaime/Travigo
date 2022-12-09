@@ -4,11 +4,16 @@ class Pages extends Controller
 {
     public function __construct()
     {
+        $this->productModel = $this->model('Product');
     }
 
     public function index()
     {
-        $this->view('index');
+        $products = $this->productModel->getThree();
+        $data = [
+            'products' => $products,
+        ];
+        $this->view('index', $data);
     }
 
     public function about()
@@ -28,6 +33,10 @@ class Pages extends Controller
 
     public function package()
     {
-        $this->view('package');
+        $products = $this->productModel->getProducts();
+        $data = [
+            'products' => $products,
+        ];
+        $this->view('package', $data);
     }
 }

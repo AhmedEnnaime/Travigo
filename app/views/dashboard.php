@@ -88,7 +88,7 @@
                                                         <?php
                                                         foreach ($products as $product) { ?>
                                                             <tr class="unread">
-                                                                <td><img class="rounded-circle" style="width:40px;" src="assets/images/user/avatar-1.jpg" alt="activity-user"></td>
+                                                                <td><img class="rounded-circle" style="width:40px;" src="<?php echo URLROOT ?>/images/user/avatar-1.jpg" alt="activity-user"></td>
                                                                 <td>
                                                                     <h6 class="mb-1"><?php echo $product['title']; ?></h6>
                                                                     <p class="m-0"><?php echo $product['destination']; ?></p>

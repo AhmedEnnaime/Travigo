@@ -10,12 +10,12 @@
             <ul class="nav pcoded-inner-navbar">
 
                 <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item active">
-                    <a href="<?php echo URLROOT; ?>/admin/dashboard" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+                    <a href="<?php echo URLROOT; ?>/admins/dashboard" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
                 </li>
 
 
                 <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
-                    <a href="<?php echo URLROOT; ?>/admin/add" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Add Travel</span></a>
+                    <a href="<?php echo URLROOT; ?>/admins/add" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Add Travel</span></a>
                 </li>
 
                 <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
@@ -61,7 +61,7 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right profile-notification">
                         <div class="pro-head">
-                            <img src="assets/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
+                            <img src="<?php echo URLROOT ?>/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
                             <span>John Doe</span>
                             <a href="./logout.php" class="dud-logout" title="Logout">
                                 <i class="feather icon-log-out"></i>
