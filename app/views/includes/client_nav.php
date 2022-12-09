@@ -21,7 +21,7 @@
             <a href="./logout.php">Logout</a>
         <?php
         } else if ($_SESSION['logged'] == false) { ?>
-            <a href="<?php echo URLROOT; ?>/pages/login">Login</a>
+            <a href="<?php echo URLROOT; ?>/users/login">Login</a>
         <?php
         }
         ?>

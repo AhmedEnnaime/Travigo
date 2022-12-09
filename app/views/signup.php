@@ -19,21 +19,26 @@
                         <i class="feather icon-user-plus auth-icon"></i>
                     </div>
                     <h3 class="mb-4">Sign up</h3>
-                    <form action="" method="POST">
+                    <form action="<?php echo URLROOT; ?>/users/signup" method="POST">
                         <div class="input-group mb-3">
-                            <input name="name" type="text" class="form-control" placeholder="Username">
+                            <input name="name" type="text" class="form-control <?php echo (!empty($data['name_err'])) ? 'is-invalid' : ''; ?>" placeholder="Username" value="<?php echo $data['name']; ?>">
+                            <span class="invalid-feedback"><?php echo $data['name_err'];  ?></span>
                         </div>
                         <div class="input-group mb-3">
-                            <input name="phone" type="text" class="form-control" placeholder="Phone number">
+                            <input name="phone" type="text" class="form-control <?php echo (!empty($data['phone_err'])) ? 'is-invalid' : ''; ?>" placeholder="Phone number" value="<?php echo $data['phone']; ?>">
+                            <span class="invalid-feedback"><?php echo $data['phone_err'];  ?></span>
                         </div>
                         <div class="input-group mb-3">
-                            <input name="birthday" type="date" class="form-control" placeholder="Birthday">
+                            <input name="birthday" type="date" class="form-control <?php echo (!empty($data['birthday_err'])) ? 'is-invalid' : ''; ?>" placeholder="Birthday" value="<?php echo $data['birthday']; ?>">
+                            <span class="invalid-feedback"><?php echo $data['birthday_err'];  ?></span>
                         </div>
                         <div class="input-group mb-3">
-                            <input name="email" type="email" class="form-control" placeholder="Email">
+                            <input name="email" type="email" class="form-control <?php echo (!empty($data['email_err'])) ? 'is-invalid' : ''; ?>" placeholder="Email" value="<?php echo $data['email']; ?>">
+                            <span class="invalid-feedback"><?php echo $data['email_err'];  ?></span>
                         </div>
                         <div class="input-group mb-4">
-                            <input name="password" type="password" class="form-control" placeholder="password">
+                            <input name="password" type="password" class="form-control <?php echo (!empty($data['password_err'])) ? 'is-invalid' : ''; ?>" placeholder="password" value="<?php echo $data['password']; ?>">
+                            <span class="invalid-feedback"><?php echo $data['password_err'];  ?></span>
                         </div>
 
 
@@ -41,7 +46,7 @@
 
                     </form>
 
-                    <p class="mb-0 text-muted">Already have an account? <a href="<?php echo URLROOT; ?>/pages/login"> Log in</a></p>
+                    <p class="mb-0 text-muted">Already have an account? <a href="<?php echo URLROOT; ?>/users/login"> Log in</a></p>
                 </div>
             </div>
         </div>

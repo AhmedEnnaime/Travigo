@@ -21,16 +21,6 @@ class Pages extends Controller
         $this->view('about');
     }
 
-    public function login()
-    {
-        $this->view('login');
-    }
-
-    public function signup()
-    {
-        $this->view('signup');
-    }
-
     public function package()
     {
         $products = $this->productModel->getProducts();

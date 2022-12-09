@@ -26,8 +26,8 @@
                 <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
                     <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span class="pcoded-mtext">Authentication</span></a>
                     <ul class="pcoded-submenu">
-                        <li class=""><a href="<?php echo URLROOT; ?>/pages/signup" class="">Sign up</a></li>
-                        <li class=""><a href="<?php echo URLROOT; ?>/pages/login" class="">Sign in</a></li>
+                        <li class=""><a href="<?php echo URLROOT; ?>/users/signup" class="">Sign up</a></li>
+                        <li class=""><a href="<?php echo URLROOT; ?>/users/login" class="">Sign in</a></li>
                     </ul>
                 </li>
 
