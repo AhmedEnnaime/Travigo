@@ -50,4 +50,11 @@ class User
             return false;
         }
     }
+
+    public function getClients()
+    {
+        $this->db->query("SELECT COUNT(*) as clients FROM user WHERE role = 1;");
+        $row = $this->db->single();
+        return $row;
+    }
 }

@@ -10,6 +10,7 @@
 
     <!-- [ Main Content ] start -->
     <?php flash('register_success'); ?>
+    <?php flash('product_message'); ?>
     <div class="pcoded-main-container">
         <div class="pcoded-wrapper">
             <div class="pcoded-content">
@@ -28,9 +29,7 @@
                                             <h6 class="mb-4">Number of clients</h6>
                                             <div class="row d-flex align-items-center">
                                                 <div class="col-9">
-                                                    <h3 class="f-w-300 d-flex align-items-center m-b-0"><?php foreach ($userCount as $users) {
-                                                                                                            echo $users;
-                                                                                                        } ?></h3>
+                                                    <h3 class="f-w-300 d-flex align-items-center m-b-0"><?php echo $data['users']->clients; ?></h3>
                                                 </div>
 
 
@@ -97,17 +96,12 @@
                                                                     <h6 class="text-muted"><?php echo $product->date_depart; ?></h6>
                                                                 </td>
                                                                 <td>
-                                                                    <form action="./delete.php" method="POST">
-                                                                        <input name="id" type="hidden" value="<?php echo $product->id; ?>">
-                                                                        <input style="border: none ;" type="submit" class="label theme-bg2 text-white f-12" value="Delete">
-
+                                                                    <form action="<?php echo URLROOT; ?>/products/delete/<?php echo $product->id; ?>" method="POST">
+                                                                        <input type="submit" class="label theme-bg2 text-white f-12" value="Delete">
                                                                     </form>
                                                                 </td>
                                                                 <td>
-                                                                    <form action="./update.php" method="POST">
-                                                                        <input name="id" type="hidden" value="<?php echo $product->id; ?>">
-                                                                        <input style="border: none;" type="submit" class="label theme-bg text-white f-12" value="Update">
-                                                                    </form>
+                                                                    <a href="<?php echo URLROOT; ?>/products/update/<?php echo $product->id; ?>"><button type="submit" class="label theme-bg text-white f-12">Update</button></a>
 
                                                                 </td>
 

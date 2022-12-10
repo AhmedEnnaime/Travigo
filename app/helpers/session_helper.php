@@ -24,3 +24,12 @@ function flash($name = '', $message = '', $class = 'alert alert-success')
         }
     }
 }
+
+function isLoggedIn()
+{
+    if (isset($_SESSION['id'])) {
+        return true;
+    } else {
+        return false;
+    }
+}

@@ -22,7 +22,7 @@
                                     <ul class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="<?php echo URLROOT; ?>/admins/dashboard"><i class="feather icon-home"></i></a></li>
 
-                                        <li class="breadcrumb-item"><a href="javascript:">Add travel</a></li>
+                                        <li class="breadcrumb-item"><a href="javascript:">Update travel</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -36,14 +36,14 @@
                                 <div class="col-sm-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Add travel pack</h5>
+                                            <h5>Update travel pack</h5>
                                         </div>
                                         <div class="card-body">
                                             <h5>Fill the informations</h5>
                                             <hr>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <form action="<?php echo URLROOT; ?>/products/add" method="POST" enctype="multipart/form-data">
+                                                    <form action="<?php echo URLROOT; ?>/products/update/<?php echo $data['id']; ?>" method="POST" enctype="multipart/form-data">
                                                         <div class="form-group">
                                                             <label for="exampleInputEmail1">Title</label>
                                                             <input type="text" class="form-control <?php echo (!empty($data['title_err'])) ? 'is-invalid' : ''; ?>" name="title" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter title" value="<?php echo $data['title']; ?>">
@@ -80,7 +80,7 @@
                                                             <span class="invalid-feedback"><?php echo $data['description_err'];  ?></span>
                                                         </div>
 
-                                                        <button type="submit" name="add" class="btn btn-primary">Add</button>
+                                                        <button type="submit" name="add" class="btn btn-primary">Update</button>
                                                     </form>
                                                 </div>
 
