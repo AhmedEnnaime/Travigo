@@ -46,9 +46,7 @@
                                             <h6 class="mb-4">Number of packages sold</h6>
                                             <div class="row d-flex align-items-center">
                                                 <div class="col-9">
-                                                    <h3 class="f-w-300 d-flex align-items-center  m-b-0"><?php foreach ($solds as $sold) {
-                                                                                                                echo $sold['sold'];
-                                                                                                            }  ?></h3>
+                                                    <h3 class="f-w-300 d-flex align-items-center  m-b-0"><?php echo $data['sold']->sold;  ?></h3>
                                                 </div>
 
                                             </div>
@@ -64,9 +62,7 @@
                                             <h6 class="mb-4">Earnings</h6>
                                             <div class="row d-flex align-items-center">
                                                 <div class="col-9">
-                                                    <h3 class="f-w-300 d-flex align-items-center  m-b-0">$ <?php foreach ($earnings as $earning) {
-                                                                                                                echo $earning['earnings'];
-                                                                                                            }  ?></h3>
+                                                    <h3 class="f-w-300 d-flex align-items-center  m-b-0">$ <?php echo $data['earnings']->earnings; ?></h3>
                                                 </div>
 
                                             </div>
@@ -128,9 +124,7 @@
                                                     <i class="feather icon-zap f-30 text-c-green"></i>
                                                 </div>
                                                 <div class="col">
-                                                    <h3 class="f-w-300"><?php foreach ($expensiveProduct as $exp) {
-                                                                            echo $exp['title'];
-                                                                        } ?></h3>
+                                                    <h3 class="f-w-300"><?php echo $data['expensive']->title; ?></h3>
                                                     <span class="d-block text-uppercase">MOST EXPENSIVE PACK</span>
                                                 </div>
                                             </div>
@@ -141,9 +135,7 @@
                                                     <i class="feather icon-map-pin f-30 text-c-blue"></i>
                                                 </div>
                                                 <div class="col">
-                                                    <h3 class="f-w-300"><?php foreach ($productCount as $count) {
-                                                                            echo $count;
-                                                                        } ?></h3>
+                                                    <h3 class="f-w-300"><?php echo $data['total']->total; ?></h3>
                                                     <span class="d-block text-uppercase">TOTAL LOCATIONS</span>
                                                 </div>
                                             </div>
@@ -159,9 +151,9 @@
                                         </div>
                                         <script>
                                             <?php
-                                            foreach ($sellings as $selling) {
-                                                $sell[] = $selling['title'];
-                                                $selledTimes[] =  $selling['selledProducts'];
+                                            foreach ($data['selledPack'] as $selling) {
+                                                $sell[] = $selling->title;
+                                                $selledTimes[] =  $selling->selledProducts;
                                             }
                                             ?>
                                             const labels = <?php echo json_encode($sell); ?>;
@@ -219,9 +211,9 @@
                                         </div>
                                         <script>
                                             <?php
-                                            foreach ($clients as $client) {
-                                                $cl[] = $client['name'];
-                                                $orders[] = $client['clients'];
+                                            foreach ($data['clients'] as $client) {
+                                                $cl[] = $client->name;
+                                                $orders[] = $client->clients;
                                             }
                                             ?>
                                             const ctx = document.getElementById('myCha');

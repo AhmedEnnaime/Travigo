@@ -23,10 +23,23 @@ class Pages extends Controller
 
     public function package()
     {
-        $products = $this->productModel->getProducts();
-        $data = [
-            'products' => $products,
-        ];
-        $this->view('package', $data);
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $data = [
+                'user_id' => $_SESSION['id'],
+                'product_id' => $_POST['product_id'],
+            ];
+            if ($this->productModel->sell($data)) {
+                flash("buy_success", "Pack buyed successfully");
+                redirect('pages/package');
+            } else {
+                die("Something went wrong");
+            }
+        } else {
+            $products = $this->productModel->getProducts();
+            $data = [
+                'products' => $products,
+            ];
+            $this->view('package', $data);
+        }
     }
 }

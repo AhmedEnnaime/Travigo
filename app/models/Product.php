@@ -76,4 +76,50 @@ class Product
             return false;
         }
     }
+
+    public function sell($data)
+    {
+        $this->db->query("INSERT INTO selling (user_id,product_id) values(:user_id,:product_id)");
+        $this->db->bind("user_id", $data['user_id']);
+        $this->db->bind("product_id", $data['product_id']);
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function getExpensive()
+    {
+        $this->db->query("SELECT * FROM product WHERE price in (SELECT MAX(price) FROM product)");
+        $row = $this->db->single();
+        return $row;
+    }
+
+    public function getProductsCount()
+    {
+        $this->db->query("SELECT COUNT(*) as total FROM product");
+        $row = $this->db->single();
+        return $row;
+    }
+
+    public function soldProducts()
+    {
+        $this->db->query("SELECT COUNT(product_id) as sold FROM selling");
+        $row = $this->db->single();
+        return $row;
+    }
+
+    public function getEarnings()
+    {
+        $this->db->query("SELECT product.title,product.price,SUM(product.price) as earnings FROM product INNER JOIN selling WHERE product.id = selling.product_id");
+        $row = $this->db->single();
+        return $row;
+    }
+
+    public function getMostPackSelled()
+    {
+        $this->db->query("SELECT product.title,product.price,COUNT(selling.product_id) as selledProducts FROM product INNER JOIN selling WHERE product.id = selling.product_id GROUP BY selling.product_id ORDER BY selledProducts DESC");
+        return $this->db->resultSet();
+    }
 }

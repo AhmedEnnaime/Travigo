@@ -134,7 +134,7 @@
                         <h4><?php echo $product->date_depart; ?></h4>
                         <p><?php echo $product->description; ?></p>
                         <?php if ($_SESSION['logged'] == true) { ?>
-                            <form action="" method="POST">
+                            <form action="<?php echo URLROOT; ?>/pages/package" method="POST">
                                 <input name="product_id" type="hidden" value="<?php echo $product->id; ?>">
                                 <input name="buy" type="submit" class="btn" value="Book Now">
                             </form>

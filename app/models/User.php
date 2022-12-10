@@ -57,4 +57,10 @@ class User
         $row = $this->db->single();
         return $row;
     }
+
+    public function faithfulClients()
+    {
+        $this->db->query("SELECT user.name,COUNT(selling.user_id) as clients FROM user INNER JOIN selling WHERE user.id = selling.user_id GROUP BY selling.user_id ORDER BY clients DESC");
+        return $this->db->resultSet();
+    }
 }
