@@ -145,6 +145,7 @@ class Users extends Controller
         $_SESSION['logged'] = true;
         $_SESSION['role'] = $user->role;
         $_SESSION['email'] = $user->email;
+        $_SESSION['name'] = $user->name;
         redirect('pages/index');
     }
 

@@ -450,7 +450,12 @@ section{
    display: none;
 }
 
-.packages .box-container .box{
+.packages .box-container .box:nth-child(1),
+.packages .box-container .box:nth-child(2),
+.packages .box-container .box:nth-child(3),
+.packages .box-container .box:nth-child(4),
+.packages .box-container .box:nth-child(5),
+.packages .box-container .box:nth-child(6){
    display: inline-block;
 }
 
@@ -491,6 +496,59 @@ section{
    text-align: center;
    margin-top: 2rem;
 }
+
+.booking .book-form{
+   padding:2rem;
+   background: var(--light-bg);
+}
+
+.booking .book-form .flex{
+   display: flex;
+   flex-wrap: wrap;
+   gap:2rem;
+}
+
+.booking .book-form .flex .inputBox{
+   flex:1 1 41rem;
+}
+
+.booking .book-form .flex .inputBox input{
+   width: 100%;
+   padding:1.2rem 1.4rem;
+   font-size: 1.6rem;
+   color:var(--light-black);
+   text-transform: none;
+   margin-top: 1.5rem;
+   border:var(--border);
+}
+
+.booking .book-form .flex .inputBox input:focus{
+   background: var(--black);
+   color:var(--white);
+}
+
+.booking .book-form .flex .inputBox input:focus::placeholder{
+   color:var(--light-white);
+}
+
+.booking .book-form .flex .inputBox span{
+   font-size: 1.5rem;
+   color:var(--light-black);
+}
+
+.booking .book-form .btn{
+   margin-top: 2rem;
+}
+
+
+
+
+
+
+
+
+
+
 
 .footer{
    background: url(../images/footer-bg.jpg) no-repeat;
@@ -539,6 +597,21 @@ section{
 .footer .credit span{
    color:var(--main-color);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* media queries  */
 

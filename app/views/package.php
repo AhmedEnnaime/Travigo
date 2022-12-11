@@ -21,26 +21,26 @@
         <div class="box-container">
 
             <?php foreach ($data['products'] as $product) :  ?>
-                <div class="box">
-                    <div class="image">
-                        <img src="<?php echo URLROOT ?>/images/img-1.jpg" alt="">
-                    </div>
-                    <div class="content">
-                        <h3><?php echo $product->title; ?></h3>
-                        <h2><?php echo $product->destination; ?></h2>
-                        <h4><?php echo $product->date_depart; ?></h4>
-                        <p><?php echo $product->description; ?></p>
-                        <?php if ($_SESSION['logged'] == true) { ?>
-                            <form action="<?php echo URLROOT; ?>/pages/package" method="POST">
-                                <input name="product_id" type="hidden" value="<?php echo $product->id; ?>">
-                                <input name="buy" type="submit" class="btn" value="Book Now">
-                            </form>
+                <?php if ($product->places_availables > 0) { ?>
+                    <div class="box">
+                        <div class="image">
+                            <img src="<?php echo URLROOT ?>/images/img-1.jpg" alt="">
+                        </div>
+                        <div class="content">
+                            <h3><?php echo $product->title; ?></h3>
+                            <h2><?php echo $product->destination; ?></h2>
+                            <h4><?php echo $product->date_depart; ?></h4>
+                            <p><?php echo $product->description; ?></p>
+                            <?php if ($_SESSION['logged'] == true) { ?>
+                                <a href="<?php echo URLROOT; ?>/pages/buy/<?php echo $product->id; ?>"><button class="btn">Book Now</button></a>
+                            <?php
+                            } ?>
 
-                        <?php
-                        } ?>
-
+                        </div>
                     </div>
-                </div>
+
+                <?php
+                } ?>
 
             <?php endforeach;   ?>
         </div>

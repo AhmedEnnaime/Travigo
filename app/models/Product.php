@@ -79,10 +79,16 @@ class Product
 
     public function sell($data)
     {
-        $this->db->query("INSERT INTO selling (user_id,product_id) values(:user_id,:product_id)");
-        $this->db->bind("user_id", $data['user_id']);
-        $this->db->bind("product_id", $data['product_id']);
-        if ($this->db->execute()) {
+        $this->db->query("SELECT * FROM product WHERE id = :id");
+        $this->db->bind("id", $data['product_id']);
+        $row = $this->db->single();
+        if ($row->places_availables >= $data['places']) {
+            $updatedPlaces = $row->places_availables - $data['places'];
+            $this->db->query("INSERT INTO selling (user_id,product_id,places) values(:user_id,:product_id,:places)");
+            $this->db->bind("user_id", $data['user_id']);
+            $this->db->bind("product_id", $data['product_id']);
+            $this->db->bind("places", $data['places']);
+            $this->db->execute();
             return true;
         } else {
             return false;

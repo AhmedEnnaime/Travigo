@@ -141,8 +141,6 @@
 
     </section>
 
-    <!-- reviews section ends -->
-
     <!-- footer section starts  -->
 
     <?php require APPROOT . '/views/includes/footer.php'; ?>

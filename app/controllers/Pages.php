@@ -23,23 +23,53 @@ class Pages extends Controller
 
     public function package()
     {
+        $products = $this->productModel->getProducts();
+        $data = [
+            'products' => $products,
+        ];
+        $this->view('package', $data);
+    }
+
+    public function buy($id)
+    {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $product = $this->productModel->getProductById($id);
             $data = [
+                'product_id' => $id,
+                'email' => $_SESSION['email'],
+                'name' => $_SESSION['name'],
                 'user_id' => $_SESSION['id'],
-                'product_id' => $_POST['product_id'],
+                'destination' => $product->destination,
+                'places' => trim($_POST['places']),
+                'places_err' => '',
+
             ];
-            if ($this->productModel->sell($data)) {
-                flash("buy_success", "Pack buyed successfully");
-                redirect('pages/package');
+            if (empty($data['places'])) {
+                $data['places_err'] = 'Please enter the number of places you want to book';
+            }
+            if (empty($data['places_err'])) {
+                if ($this->productModel->sell($data)) {
+                    flash("buy_success", "Pack buyed successfully");
+                    redirect('pages/package');
+                } else {
+                    echo '<span">Not enough places left</span>';
+                }
             } else {
-                die("Something went wrong");
+                $this->view('buy', $data);
             }
         } else {
-            $products = $this->productModel->getProducts();
+            $product = $this->productModel->getProductById($id);
             $data = [
-                'products' => $products,
+                'product_id' => $id,
+                'email' => $_SESSION['email'],
+                'name' => $_SESSION['name'],
+                'user_id' => $_SESSION['id'],
+                'destination' => $product->destination,
+                'places' => $_POST['places'],
+                'places_err' => '',
             ];
-            $this->view('package', $data);
+
+            $this->view('buy', $data);
         }
     }
 }
