@@ -27,7 +27,7 @@
                 <?php if ($product->places_availables > 0 && $product->date_depart > $date) { ?>
                     <div class="box">
                         <div class="image">
-                            <img src="<?php echo URLROOT ?>/images/img-1.jpg" alt="">
+                            <img src="<?php echo URLROOT ?>/images/uploads/<?php echo $product->media; ?>" alt="">
                         </div>
                         <div class="content">
                             <h3><?php echo $product->title; ?></h3>

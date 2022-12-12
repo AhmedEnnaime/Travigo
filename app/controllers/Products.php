@@ -65,7 +65,7 @@ class Products extends Controller
 
                 if ($this->productModel->addProduct($data)) {
                     $file = $_FILES['media']['name'];
-                    $folder = URLROOT . '/images/uploads/' . $file;
+                    $folder = './images/uploads/' . $file;
                     $fileTmp = $_FILES['media']['tmp_name'];
                     move_uploaded_file($fileTmp, $folder);
                     flash('register_success', 'Travel added successfully');
