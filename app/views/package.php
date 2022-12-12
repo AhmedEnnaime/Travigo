@@ -19,9 +19,12 @@
         <h1 class="heading-title">top destinations</h1>
 
         <div class="box-container">
+            <?php
+            $date = date('Y-m-d');
+            ?>
 
             <?php foreach ($data['products'] as $product) :  ?>
-                <?php if ($product->places_availables > 0) { ?>
+                <?php if ($product->places_availables > 0 && $product->date_depart > $date) { ?>
                     <div class="box">
                         <div class="image">
                             <img src="<?php echo URLROOT ?>/images/img-1.jpg" alt="">

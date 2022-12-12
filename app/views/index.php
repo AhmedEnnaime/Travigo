@@ -23,7 +23,7 @@
                     <div class="content">
                         <span>explore, discover, travel</span>
                         <h3>travel arround the world</h3>
-                        <a href="package.php" class="btn">discover more</a>
+                        <a href="<?php echo URLROOT ?>/pages/package" class="btn">discover more</a>
                     </div>
                 </div>
 
@@ -123,8 +123,9 @@
         <h1 class="heading-title"> our packages </h1>
 
         <div class="box-container">
+            <?php $date = date('Y-m-d'); ?>
             <?php foreach ($data['products'] as $product) : ?>
-                <?php if ($product->places_availables > 0) { ?>
+                <?php if ($product->places_availables > 0 && $product->date_depart > $date) { ?>
                     <div class="box">
                         <div class="image">
                             <img src="<?php echo URLROOT ?>/images/img-1.jpg" alt="">

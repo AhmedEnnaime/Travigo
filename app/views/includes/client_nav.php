@@ -2,7 +2,7 @@
 
 <section class="header">
 
-    <a href="home.php" class="logo">Travigo</a>
+    <a href="<?php echo URLROOT; ?>" class="logo">Travigo</a>
 
     <nav class="navbar">
         <a href="<?php echo URLROOT; ?>">home</a>

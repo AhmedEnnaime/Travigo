@@ -23,6 +23,9 @@ class Product
 
     public function addProduct($data)
     {
+        //$file = $_FILES['media']['name'];
+        //$folder = URLROOT . '/images/uploads' . $file;
+        //$fileTmp = $_FILES['media']['tmp_name'];
         $this->db->query("INSERT INTO product (title,destination,media,description,price,user_id,date_depart,places_availables) values(:title,:destination,:media,:description,:price,:user_id,:date_depart,:places_availables)");
         $this->db->bind(":title", $data['title']);
         $this->db->bind(":destination", $data['destination']);
@@ -33,6 +36,7 @@ class Product
         $this->db->bind(":date_depart", $data['date_depart']);
         $this->db->bind(":places_availables", $data['places_availables']);
         if ($this->db->execute()) {
+            //move_uploaded_file($fileTmp, $folder);
             return true;
         } else {
             return false;
@@ -88,7 +92,11 @@ class Product
             $this->db->bind("user_id", $data['user_id']);
             $this->db->bind("product_id", $data['product_id']);
             $this->db->bind("places", $data['places']);
-            $this->db->execute();
+            if ($this->db->execute()) {
+                $this->db->query("UPDATE product SET places_availables = " . $updatedPlaces . " WHERE id = :id");
+                $this->db->bind("id", $data['product_id']);
+                $this->db->execute();
+            }
             return true;
         } else {
             return false;

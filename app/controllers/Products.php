@@ -64,9 +64,9 @@ class Products extends Controller
             if (empty($data['title_err']) && empty($data['destination_err']) && empty($data['media_err']) && empty($data['date_depart_err']) && empty($data['price_err']) && empty($data['places_avalables_err']) && empty($data['description_err'])) {
 
                 if ($this->productModel->addProduct($data)) {
-                    $file = ['media']['name'];
-                    $folder = URLROOT . '/public/images/uploads' . $file;
-                    $fileTmp = ['media']['tmp_name'];
+                    $file = $_FILES['media']['name'];
+                    $folder = URLROOT . '/images/uploads/' . $file;
+                    $fileTmp = $_FILES['media']['tmp_name'];
                     move_uploaded_file($fileTmp, $folder);
                     flash('register_success', 'Travel added successfully');
                     redirect('admins/dashboard');
