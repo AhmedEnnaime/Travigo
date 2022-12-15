@@ -10,6 +10,6 @@ define('DB_NAME', 'travigo');
 
 define('APPROOT', dirname(dirname(__FILE__)));
 
-define('URLROOT', 'http://localhost/YouCode/shinigami');
+define('URLROOT', 'http://localhost/YouCode/Travigo');
 
 define('SITENAME', 'Travigo');
