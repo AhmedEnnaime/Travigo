@@ -14,7 +14,7 @@ To deploy this project you need run it locally by placing the folder in htdocs i
 
 **Client:** HTML, CSS, Javascript, Bootstrap
 
-**Server:** PHP
+**Server:** PHP, Mysql
 
 
 ## Authors
