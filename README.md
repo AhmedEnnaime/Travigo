@@ -16,6 +16,8 @@ To deploy this project you need run it locally by placing the folder in htdocs i
 
 **Server:** PHP, Mysql
 
+**Architecture:** MVC
+
 
 ## Authors
 
